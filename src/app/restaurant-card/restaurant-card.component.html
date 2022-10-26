@@ -1,11 +1,16 @@
 <mat-expansion-panel class="card-title">
     <mat-expansion-panel-header class="card">
       <mat-panel-title>
-        This is the expansion title
+        {{ rest1.name }}
       </mat-panel-title>
       <mat-panel-description>
-        This is a summary of the content
+        {{ rest1.waitTime }}
+        {{ rest1.menuLink }}
+
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <p>This is the primary content of the panel.</p>
+    <p>
+      {{ rest1.diningTables }}
+      {{ rest1.freeTables }}
+    </p>
   </mat-expansion-panel>
