@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { RestaurantObject } from 'src/assets/restObject';
+import { TileObject } from 'src/assets/tileObject';
 
 @Component({
   selector: 'app-restaurant-card',
@@ -8,12 +9,21 @@ import { RestaurantObject } from 'src/assets/restObject';
   styleUrls: ['./restaurant-card.component.css']
 })
 export class RestaurantCardComponent implements OnInit {
+  @Input() restName: string;
+  @Input() restId: number;
+  @Input() restManagerId: string;
+  @Input() restWaitTime: number;
+  @Input() restMenuLink: string;
+  @Input() restDiningTables: string;
+  @Input() restFreeTables: string;
+  tiles: TileObject[] = [];
 
-  rest1: RestaurantObject;
+  allRests: RestaurantObject;
   title = 'foodzilla-patron';
 
   async ngOnInit () {
     this.getRests();
+    this.loadTables();
   }
 
   private async getRests() {
@@ -24,15 +34,29 @@ export class RestaurantCardComponent implements OnInit {
     {
       var data = xhr.responseText;
       var response = JSON.parse(data)
-      this.rest1 = response.restaurants[0] as RestaurantObject
-      this.rest1.name = this.rest1[0].toString();
-      this.rest1.id = this.rest1[1]
-      this.rest1.managerId = this.rest1[2]
-      this.rest1.waitTime = this.rest1[3]
-      this.rest1.menuLink = this.rest1[4]
-      this.rest1.diningTables = this.rest1[5]
-      this.rest1.freeTables = this.rest1[6]
-      console.log(this.rest1);
+      this.allRests = response.restaurants;
+    }
+  }
+
+  private async loadTables() {
+    this.tiles = [];
+    let diningTables: string[] = [...this.restDiningTables];
+    let openTables: string[] = [...this.restFreeTables];
+    console.log(diningTables.length)
+    for(let i = 0; i < diningTables.length; i++) {
+      console.log(diningTables[i]);
+      if(diningTables[i] != "0" && diningTables[i] != "|") {
+        if(diningTables[i]!= "0" && openTables[i] == "1") {
+          this.tiles.push({seats: diningTables[i], color: "green"});
+        }
+        else {
+          this.tiles.push({seats: diningTables[i], color: "red"});
+        }
+      }
+      else {
+        this.tiles.push({seats: "", color: "white"});
+      }
+      console.log(this.tiles[i]);
     }
   }
 }

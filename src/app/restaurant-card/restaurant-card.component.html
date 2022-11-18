@@ -1,16 +1,22 @@
 <mat-expansion-panel class="card-title">
     <mat-expansion-panel-header class="card">
       <mat-panel-title>
-        {{ rest1.name }}
+        <h3 class="md-headline">
+          {{ restName }}
+        </h3>
       </mat-panel-title>
       <mat-panel-description>
-        {{ rest1.waitTime }}
-        {{ rest1.menuLink }}
+        {{ restWaitTime }}
+        {{ restMenuLink }}
 
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <p>
-      {{ rest1.diningTables }}
-      {{ rest1.freeTables }}
+    <p  class="table-display">
+      <mat-grid-list cols="6" colspan = "1" rowHeight="2:1">
+        <mat-grid-tile *ngFor = "let tile of tiles"
+        [style.background]="tile.color">
+        {{tile.seats}}
+      </mat-grid-tile>
+      </mat-grid-list>
     </p>
-  </mat-expansion-panel>
+</mat-expansion-panel>
