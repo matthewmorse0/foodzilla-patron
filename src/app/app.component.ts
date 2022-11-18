@@ -10,8 +10,9 @@ import { RestaurantObject } from 'src/assets/restObject';
 })
 
 export class AppComponent implements OnInit {
-  response: RestaurantObject[];
-  rest1: RestaurantObject;
+
+  allRests: RestaurantObject[];
+
 
   title = 'foodzilla-patron';
   constructor(private http: HttpClient) {}
@@ -34,8 +35,8 @@ export class AppComponent implements OnInit {
     {
       var data = xhr.responseText;
       var response = JSON.parse(data)
-      this.rest1 = response.restaurants[0];
-      //console.log(this.rest1);
+      this.allRests = response.restaurants;
+      console.log(this.allRests)
     }
   }
 
