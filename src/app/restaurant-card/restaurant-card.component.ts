@@ -42,9 +42,7 @@ export class RestaurantCardComponent implements OnInit {
     this.tiles = [];
     let diningTables: string[] = [...this.restDiningTables];
     let openTables: string[] = [...this.restFreeTables];
-    console.log(diningTables.length)
     for(let i = 0; i < diningTables.length; i++) {
-      console.log(diningTables[i]);
       if(diningTables[i] != "0" && diningTables[i] != "|") {
         if(diningTables[i]!= "0" && openTables[i] == "1") {
           this.tiles.push({seats: diningTables[i], color: "green"});
@@ -56,7 +54,6 @@ export class RestaurantCardComponent implements OnInit {
       else {
         this.tiles.push({seats: "", color: "white"});
       }
-      console.log(this.tiles[i]);
     }
   }
 }
