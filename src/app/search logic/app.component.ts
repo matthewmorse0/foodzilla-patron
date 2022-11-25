@@ -1,5 +1,24 @@
-export class AppComponent {
-    title= 'instant-search';
-    public searchInput: string;
-    public restaurant = ['Budys','McRonalds','Olive Flower', 'Blooming Olandos','Bistro Captain', ' The pepper nights', 'The bright Brewery', 'The baking fable', 'Le Depot', 'Le sous-sol']
+export { Component} from '@angular/core';
+ @Component ({
+    selector= 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
+ })
+ export class AppComponent{
+    title = 'angular-text-search- highlight';
+    searchText = '';
+    restaurants = [
+'Budys',
+'Mango Garden',
+'Tempura Hut',
+'MacReynalds',
+'Jennys',
+'Black Jack',
+'Muchies',
+'London Wings',
+'Bagelly',
+'Funkin Donuts',
+...
+    ]
 }
+   

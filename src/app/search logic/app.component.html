@@ -1,15 +1,18 @@
-<section>
-    <h5> Search result</h5>
-<input name=" searchInput" [ngModel)]="searchInput" type "text"
-placeholder= "Search for restaurant" size="50">
-<article>
-    <h6> Results  </h6>
-    <ul>
-        <li *ngFor="let restaurantName of restaurantName
-        | search: 
-        searchInput">
-    {{restaurantName}}
-    </li>
-    </ul>
-</article>
-</section>
+
+
+<div class="content" role="main">
+    <div class="card">
+      <div class="form-group">
+        <label for="search-text">Search Text</label>
+        <input type="email" class="form-control" id="search-text" aria-describedby="search-text" 
+          [(ngModel)]="searchText" placeholder="Enter text to search" 
+          autofocus>
+      </div>
+      <ul class="list-retaurant-near-me">
+         
+        <li class="list-restaurant" *ngFor="let r of restaurants | appFilter: searchText">
+          {{r}}
+        </li>
+      </ul>
+    </div>
+  </div>
