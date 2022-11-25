@@ -1,0 +1,15 @@
+<section>
+    <h5> Search result</h5>
+<input name=" searchInput" [ngModel)]="searchInput" type "text"
+placeholder= "Search for restaurant" size="50">
+<article>
+    <h6> Results  </h6>
+    <ul>
+        <li *ngFor="let restaurantName of restaurantName
+        | search: 
+        searchInput">
+    {{restaurantName}}
+    </li>
+    </ul>
+</article>
+</section>
