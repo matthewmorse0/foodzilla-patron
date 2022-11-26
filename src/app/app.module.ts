@@ -8,15 +8,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import {MatIcon, MatIconModule} from '@angular/material/icon';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {FilterPipe} from './pipes/filter.pipe';
-import {FormsModule} from '@angular/forms';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { FilterPipe } from './search logic/filter.pipe';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    RestaurantCardComponent
+    RestaurantCardComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -28,22 +29,11 @@ import {FormsModule} from '@angular/forms';
     MatButtonModule,
     MatIconModule,
     HttpClientModule,
-    MatGridListModule
+    MatGridListModule,
+    BrowserModule,
+    FormsModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-@NgModule({
-  declarations: [
-    AppComponent,
-    FilterPipe
-  ],
-  imports:[
-    BrowseModule,
-    FormsModule
-  ],
-bootstrap: [AppComponent]
-})
-export class AppModule{}
