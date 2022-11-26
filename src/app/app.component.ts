@@ -3,6 +3,7 @@ import { Component, Injectable, OnInit } from '@angular/core';
 import { firstValueFrom, Observable } from 'rxjs';
 import { RestaurantCardComponent } from './restaurant-card/restaurant-card.component';
 import { RestaurantObject } from 'src/assets/restObject';
+import {Component} from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -42,3 +43,25 @@ export class AppComponent implements OnInit {
 
 }
 
+@Component ({
+  selector= 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent{
+  title = 'angular-text-search- highlight';
+  searchText = '';
+  restaurants = [
+'Budys',
+'Mango Garden',
+'Tempura Hut',
+'MacReynalds',
+'Jennys',
+'Black Jack',
+'Muchies',
+'London Wings',
+'Bagelly',
+'Funkin Donuts',
+...
+  ]
+}

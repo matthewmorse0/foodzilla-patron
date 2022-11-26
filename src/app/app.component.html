@@ -23,3 +23,19 @@
   [restFreeTables]="rests[6]"
   ></app-restaurant-card>
 </body>
+<div class="content" role="main">
+  <div class="card">
+    <div class="form-group">
+      <label for="search-text">Search Text</label>
+      <input type="email" class="form-control" id="search-text" aria-describedby="search-text" 
+        [(ngModel)]="searchText" placeholder="Enter text to search" 
+        autofocus>
+    </div>
+    <ul class="list-retaurant-near-me">
+       
+      <li class="list-restaurant" *ngFor="let r of restaurants | appFilter: searchText">
+        {{r}}
+      </li>
+    </ul>
+  </div>
+</div>

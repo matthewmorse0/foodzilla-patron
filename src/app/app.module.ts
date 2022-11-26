@@ -11,7 +11,8 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatIcon, MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import {MatGridListModule} from '@angular/material/grid-list';
-
+import {FilterPipe} from './pipes/filter.pipe';
+import {FormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,3 +34,16 @@ import {MatGridListModule} from '@angular/material/grid-list';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    FilterPipe
+  ],
+  imports:[
+    BrowseModule,
+    FormsModule
+  ],
+bootstrap: [AppComponent]
+})
+export class AppModule{}
