@@ -4,6 +4,7 @@ import { firstValueFrom, Observable } from 'rxjs';
 import { RestaurantCardComponent } from './restaurant-card/restaurant-card.component';
 import { RestaurantObject } from 'src/assets/restObject';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -40,18 +41,14 @@ export class AppComponent implements OnInit {
       console.log(this.allRests)
     }
   }
-
-  searchText = '';
-  restaurants = [
-  'Budys',
-  'Mango Garden',
-  'Tempura Hut',
-  'MacReynalds',
-  'Jennys',
-  'Black Jack',
-  'Muchies',
-  'London Wings',
-  'Bagelly',
-  'Funkin Donuts'
+export class AppComponent {
+  title = 'Search Restaurant';
+  searchText;
+  restaurant = [
+    id:1, restaurant :King Street Pub
+    id:2, restaurant: Chilis
+    id:3, restaurant: Olive Garden 
+    id:4, restaurant: Dions
   ];
 }
+ 

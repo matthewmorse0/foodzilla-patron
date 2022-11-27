@@ -20,11 +20,24 @@
       autofocus>
   </div>
   <ul class="list-retaurant-near-me">
+     <thead>
+      <tr>
+        <th>Id</th>
+        <th>Restaurant</th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr *ngFor="List restaurant">
+        <td> {{restaurant.id}}</td>
+        <td>{{restaurant.name}}</td>
+      </tr>
+     </tbody>
      
     <li class="list-restaurant" *ngFor="let r of restaurants | appFilter: searchText">
       {{r}}
     </li>
   </ul>
+
   <app-restaurant-card *ngFor="let rests of allRests" class="cards" 
   [restName]="rests[0]"
   [restId]="rests[1]"
