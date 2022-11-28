@@ -40,15 +40,14 @@ export class AppComponent implements OnInit {
       this.allRests = response.restaurants;
       console.log(this.allRests)
     }
+    // let title = 'Search Restaurant';
+    // let searchText;
+    // let restaurant = [
+    //   id:1, restaurant :King Street Pub
+    //   id:2, restaurant: Chilis
+    //   id:3, restaurant: Olive Garden 
+    //   id:4, restaurant: Dions
+    // ];
   }
-export class AppComponent {
-  title = 'Search Restaurant';
-  searchText;
-  restaurant = [
-    id:1, restaurant :King Street Pub
-    id:2, restaurant: Chilis
-    id:3, restaurant: Olive Garden 
-    id:4, restaurant: Dions
-  ];
 }
  
