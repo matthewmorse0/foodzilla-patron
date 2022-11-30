@@ -1,8 +1,9 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Component, Injectable, OnInit } from '@angular/core';
-import { firstValueFrom, Observable } from 'rxjs';
+import { firstValueFrom, interval, Observable, Subscription } from 'rxjs';
 import { RestaurantCardComponent } from './restaurant-card/restaurant-card.component';
 import { RestaurantObject } from 'src/assets/restObject';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -14,20 +15,22 @@ import { RestaurantObject } from 'src/assets/restObject';
 export class AppComponent implements OnInit {
 
   allRests: RestaurantObject[];
+  isExpanded: boolean;
 
 
   title = 'foodzilla-patron';
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private readonly router: Router,
+    private readonly activatedRoute: ActivatedRoute
+    ) {}
 
   async ngOnInit () {
     this.getRests();
   }
   
-  getConfigResponse(): Observable<RestaurantObject> {
-    return this.http.get<RestaurantObject>(
-      "http://127.0.0.1:5000/get_all_info")
-  }
-
+  // timer = interval(1000);
+  // sub = this.timer.subscribe(val => this.getRests());
 
   private async getRests() {
     let xhr = new XMLHttpRequest();
@@ -38,7 +41,6 @@ export class AppComponent implements OnInit {
       var data = xhr.responseText;
       var response = JSON.parse(data)
       this.allRests = response.restaurants;
-      console.log(this.allRests)
     }
     // let title = 'Search Restaurant';
     // let searchText;

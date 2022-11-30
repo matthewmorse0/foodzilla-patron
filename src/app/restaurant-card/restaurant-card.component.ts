@@ -17,25 +17,35 @@ export class RestaurantCardComponent implements OnInit {
   @Input() restDiningTables: string;
   @Input() restFreeTables: string;
   tiles: TileObject[] = [];
+  isOpen: boolean[]= [false, false, false, false, false];
+  panel1 = false;
+  panel2 = false;
+  panel3 = false;
+  panel4 = false;
 
   allRests: RestaurantObject;
   title = 'foodzilla-patron';
 
   async ngOnInit () {
-    this.getRests();
     this.loadTables();
   }
 
-  private async getRests() {
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://127.0.0.1:5000/get_all_info");
-    xhr.send();
-    xhr.onload = () => 
-    {
-      var data = xhr.responseText;
-      var response = JSON.parse(data)
-      this.allRests = response.restaurants;
-    }
+  setOpen1(event: any){
+    this.isOpen[1] = true;
+    console.log('asg')
+  }
+
+  setOpen2(event: any){
+    this.isOpen[2] = true;
+    console.log('2')
+  }
+
+  setOpen3(event: any){
+    this.isOpen[3] = true;
+  }
+
+  setOpen4(event: any){
+    this.isOpen[4] = true;
   }
 
   private async loadTables() {

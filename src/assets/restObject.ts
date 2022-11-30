@@ -6,5 +6,6 @@ export interface RestaurantObject {
     menuLink: string;
     diningTables: string;
     freeTables: string;
+    open?: boolean;
   }
   

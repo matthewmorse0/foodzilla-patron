@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { FilterPipe } from './search logic/filter.pipe';
 import { FormsModule } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     MatGridListModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
