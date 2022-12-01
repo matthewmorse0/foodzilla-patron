@@ -13,6 +13,7 @@ export class RestaurantCardComponent implements OnInit {
   @Input() restId: number;
   @Input() restManagerId: string;
   @Input() restWaitTime: number;
+  @Input() waitlist: number;
   @Input() restMenuLink: string;
   @Input() restDiningTables: string;
   @Input() restFreeTables: string;
