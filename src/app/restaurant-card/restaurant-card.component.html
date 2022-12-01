@@ -5,10 +5,9 @@
           {{ restName }}
         </h3>
       </mat-panel-title>
-      <mat-panel-description>
-        {{ restWaitTime }}
-        {{ restMenuLink }}
-
+      <mat-panel-description class="flex-container">
+        <div>{{ restMenuLink }}</div>
+        <div>Wait Time: {{ restWaitTime }} min</div>
       </mat-panel-description>
     </mat-expansion-panel-header>
     <p  class="table-display">

@@ -22,7 +22,7 @@ export class RestaurantCardComponent implements OnInit {
   title = 'foodzilla-patron';
 
   async ngOnInit () {
-    this.getRests();
+    //this.getRests();
     this.loadTables();
   }
 
